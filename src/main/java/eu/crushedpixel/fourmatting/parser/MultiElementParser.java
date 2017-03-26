@@ -67,6 +67,7 @@ public class MultiElementParser extends AbstractParser<MultiElement, MultiElemen
 
     @Override
     protected void finish() throws ParsingException {
+        if (escaped) throw new ParsingException(iterator.getIndex(), "Escape character \"\\\" was not resolved");
         finishStringElement();
         super.finish();
     }

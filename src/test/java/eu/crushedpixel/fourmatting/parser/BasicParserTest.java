@@ -51,6 +51,9 @@ public class BasicParserTest {
     private static final String invalidElementStringE = "{[]}";
     private static final String invalidElementStringF = "[}";
     private static final String invalidElementStringG = "{}}";
+    private static final String invalidElementStringH = "\\";
+    private static final String invalidElementStringI = "[\\]";
+    private static final String invalidElementStringJ = "Hello\\";
 
     @Test
     public void testPlainString() throws ParsingException {
@@ -195,6 +198,9 @@ public class BasicParserTest {
         assertParsingException(invalidElementStringE);
         assertParsingException(invalidElementStringF);
         assertParsingException(invalidElementStringG);
+        assertParsingException(invalidElementStringH);
+        assertParsingException(invalidElementStringI);
+        assertParsingException(invalidElementStringJ);
     }
 
     private void assertParsingException(String toParse) {
